@@ -103,8 +103,10 @@ const Cart = () => {
   }
 
   return (
-    <div className="container" style={{ paddingTop: "100px" }}>
-      <h1>Shopping Cart</h1>
+    <div className="container" style={{ paddingTop: "10px" }}>
+      <h1 style={{ fontFamily: "cursive", marginBottom: "50px" }}>
+        Shopping Cart
+      </h1>
 
       {error && (
         <div style={{ color: "red", marginBottom: "1rem" }}>Error: {error}</div>
@@ -358,7 +360,8 @@ const Cart = () => {
                 style={{
                   width: "100%",
                   padding: "1rem",
-                  backgroundColor: "#28a745",
+                  background:"linear-gradient(270deg, #28a745, #20c997, #007bff, #6f42c1, #ff6a00)",
+                  backgroundSize: "600% 600%",
                   color: "white",
                   border: "none",
                   borderRadius: "8px",
@@ -366,9 +369,30 @@ const Cart = () => {
                   fontWeight: "bold",
                   cursor: "pointer",
                   marginBottom: "1rem",
+                  animation: "gradientMove 8s ease infinite",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = "scale(1.05)";
+                  e.currentTarget.style.boxShadow =
+                    "0 6px 15px rgba(0, 0, 0, 0.2)";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = "scale(1)";
+                  e.currentTarget.style.boxShadow = "none";
                 }}>
                 Proceed to Checkout
               </button>
+
+              <style>
+                {`
+                  @keyframes gradientMove {
+                    0% { background-position: 0% 50%; }
+                    50% { background-position: 100% 50%; }
+                    100% { background-position: 0% 50%; }
+                  }
+                `}
+              </style>
 
               <Link
                 to="/products"
