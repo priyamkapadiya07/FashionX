@@ -12,10 +12,6 @@ const Cart = () => {
   );
   const { isAuthenticated } = useSelector((state) => state.auth);
 
-  // useEffect(() => {
-  //   fetchCart();
-  // }, [fetchCart]);
-
   const fetchCart = useCallback(async () => {
     dispatch({ type: "CART_LOADING" });
     try {

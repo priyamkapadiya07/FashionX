@@ -47,7 +47,7 @@ const Home = () => {
       
       {/* Categories Section */}
       <div style={{ marginBottom: '4rem' }}>
-        <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Shop by Category</h2>
+        <h2 style={{ textAlign: 'center', marginBottom: '2rem', fontFamily:'cursive'}}>Shop by Category</h2>
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
@@ -145,7 +145,7 @@ const Home = () => {
       {/* Featured Products */}
       {featuredProducts.length > 0 && (
         <div style={{ marginBottom: '4rem' }}>
-          <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Featured Products</h2>
+          <h2 style={{ textAlign: 'center', marginBottom: '2rem', fontFamily:'cursive'}}>Featured Products</h2>
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
@@ -218,7 +218,7 @@ const Home = () => {
       {/* New Arrivals */}
       {newArrivals.length > 0 && (
         <div style={{ marginBottom: '4rem' }}>
-          <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>New Arrivals</h2>
+          <h2 style={{ textAlign: 'center', marginBottom: '2rem',fontFamily:'cursive' }}>New Arrivals</h2>
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
