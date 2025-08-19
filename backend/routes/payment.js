@@ -54,6 +54,7 @@ router.post('/process-payment', auth, async (req, res) => {
       user: req.user.userId,
       items: cart.items.map(item => ({
         product: item.product._id,
+        productName: item.product.name,
         quantity: item.quantity,
         size: item.size || 'M',
         color: item.color || 'Black',
@@ -104,10 +105,10 @@ router.post('/process-payment', auth, async (req, res) => {
 
         const orderItemsHtml = order.items.map(item => `
           <tr>
-            <td>${item.product.name || 'Product'}</td>
-            <td>${item.quantity}</td>
-            <td>₹${(item.price || 0).toFixed(2)}</td>
-            <td>₹${((item.price || 0) * item.quantity).toFixed(2)}</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">${item.productName || 'Product'}</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">${item.quantity}</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">₹${(item.price || 0).toFixed(2)}</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">₹${((item.price || 0) * item.quantity).toFixed(2)}</td>
           </tr>
         `).join('');
 
