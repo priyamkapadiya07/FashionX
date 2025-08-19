@@ -39,39 +39,154 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
-      <div className="card" style={{ maxWidth: '400px', margin: '50px auto' }}>
-        <h2>Login to FashionX</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <button type="submit" className="btn btn-primary" disabled={loading}>
-            {loading ? 'Logging in...' : 'Login'}
-          </button>
-        </form>
-        <p style={{ marginTop: '20px', textAlign: 'center' }}>
-          Don't have an account? <Link to="/register">Register here</Link>
-        </p>
+    <div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "100vh",
+    background: "linear-gradient(120deg, #007bff, #20c997, #6f42c1, #ff6a00, #28a745)",
+    backgroundSize: "400% 400%",
+    animation: "gradientBG 12s ease infinite",
+    marginTop:'-10px',
+  }}
+>
+  <div
+    style={{
+      marginTop:'-130px',
+      background: "#fff",
+      borderRadius: "16px",
+      boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
+      padding: "30px",
+      maxWidth: "400px",
+      width: "100%",
+      textAlign: "center",
+      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    }}
+    onMouseOver={(e) => {
+      e.currentTarget.style.transform = "translateY(-5px)";
+      e.currentTarget.style.boxShadow = "0 10px 25px rgba(0,0,0,0.2)";
+    }}
+    onMouseOut={(e) => {
+      e.currentTarget.style.transform = "translateY(0)";
+      e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.15)";
+    }}
+  >
+    <h2 style={{ marginBottom: "20px", color: "#333", fontSize: "1.8rem" }}>Login to FashionX</h2>
+    <form onSubmit={handleSubmit}>
+      <div style={{ textAlign: "left", marginBottom: "15px" }}>
+        <label style={{ display: "block", marginBottom: "6px", fontWeight: "600", color: "#555" }}>Email</label>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          style={{
+            width: "100%",
+            padding: "12px",
+            border: "1px solid #ddd",
+            borderRadius: "8px",
+            fontSize: "1rem",
+            outline: "none",
+            transition: "border 0.2s ease, box-shadow 0.2s ease",
+          }}
+          onFocus={(e) => {
+            e.target.style.borderColor = "#007bff";
+            e.target.style.boxShadow = "0 0 6px rgba(0,123,255,0.3)";
+          }}
+          onBlur={(e) => {
+            e.target.style.borderColor = "#ddd";
+            e.target.style.boxShadow = "none";
+          }}
+        />
       </div>
-    </div>
+
+      <div style={{ textAlign: "left", marginBottom: "15px" }}>
+        <label style={{ display: "block", marginBottom: "6px", fontWeight: "600", color: "#555" }}>Password</label>
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+          style={{
+            width: "100%",
+            padding: "12px",
+            border: "1px solid #ddd",
+            borderRadius: "8px",
+            fontSize: "1rem",
+            outline: "none",
+            transition: "border 0.2s ease, box-shadow 0.2s ease",
+          }}
+          onFocus={(e) => {
+            e.target.style.borderColor = "#007bff";
+            e.target.style.boxShadow = "0 0 6px rgba(0,123,255,0.3)";
+          }}
+          onBlur={(e) => {
+            e.target.style.borderColor = "#ddd";
+            e.target.style.boxShadow = "none";
+          }}
+        />
+      </div>
+
+      <button
+        type="submit"
+        disabled={loading}
+        style={{
+          width: "100%",
+          padding: "12px",
+          border: "none",
+          borderRadius: "8px",
+          fontSize: "1.1rem",
+          fontWeight: "bold",
+          color: "#fff",
+          background: "linear-gradient(270deg, #007bff, #20c997, #6f42c1, #ff6a00, #28a745)",
+          backgroundSize: "600% 600%",
+          cursor: loading ? "not-allowed" : "pointer",
+          marginTop: "10px",
+          transition: "transform 0.3s ease, box-shadow 0.3s ease",
+          animation: loading ? "none" : "gradientMove 8s ease infinite",
+        }}
+        onMouseOver={(e) => {
+          if (!loading) {
+            e.currentTarget.style.transform = "scale(1.05)";
+            e.currentTarget.style.boxShadow = "0 6px 15px rgba(0,0,0,0.2)";
+          }
+        }}
+        onMouseOut={(e) => {
+          if (!loading) {
+            e.currentTarget.style.transform = "scale(1)";
+            e.currentTarget.style.boxShadow = "none";
+          }
+        }}
+      >
+        {loading ? "Logging in..." : "Login"}
+      </button>
+    </form>
+
+    <p style={{ marginTop: "20px", textAlign: "center", color: "#555" }}>
+      Don't have an account? <Link to="/register" style={{ color: "#007bff", fontWeight: "bold", textDecoration: "none" }}>Register here</Link>
+    </p>
+  </div>
+
+  <style>
+    {`
+      @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+    `}
+  </style>
+</div>
+
   );
 };
 
