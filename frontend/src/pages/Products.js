@@ -76,7 +76,7 @@ const Products = () => {
   }
 
   return (
-    <div className="container" style={{ paddingTop: '100px' }}>
+    <div className="container">
       <h1>Products</h1>
       
       {/* Filters */}

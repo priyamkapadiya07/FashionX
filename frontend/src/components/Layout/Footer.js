@@ -17,19 +17,19 @@ const Footer = () => {
           <div>
             <h4>Quick Links</h4>
             <ul style={{ listStyle: 'none' }}>
-              <li><a href="/products" style={{ color: 'white', textDecoration: 'none' }}>Products</a></li>
-              <li><a href="/cart" style={{ color: 'white', textDecoration: 'none' }}>Cart</a></li>
-              <li><a href="/login" style={{ color: 'white', textDecoration: 'none' }}>Login</a></li>
+              <li><a href="/products" style={{ color: 'white', textDecoration: 'none' }}>Products 👟</a></li>
+              <li><a href="/cart" style={{ color: 'white', textDecoration: 'none' }}>Cart 🛒</a></li>
+              <li><a href="/login" style={{ color: 'white', textDecoration: 'none' }}>Login 🌐</a></li>
             </ul>
           </div>
           <div>
             <h4>Contact</h4>
             <p>Email: info@fashionx.com</p>
-            <p>Phone: +1 234 567 8900</p>
+            <p>Phone: +91 1234567890</p>
           </div>
         </div>
         <div style={{ textAlign: 'center', marginTop: '2rem', borderTop: '1px solid #555', paddingTop: '1rem' }}>
-          <p>&copy; 2024 FashionX. All rights reserved.</p>
+          <p>&copy; 2025 FashionX. All rights reserved.</p>
         </div>
       </div>
     </footer>
