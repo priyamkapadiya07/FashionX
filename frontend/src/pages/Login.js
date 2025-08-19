@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate, Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import axios from 'axios';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate, Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
   const [loading, setLoading] = useState(false);
-  
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -21,18 +21,21 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    
+
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
-      
-      dispatch({ type: 'LOGIN_SUCCESS', payload: response.data });
-      toast.success('Login successful!');
-      
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/login",
+        formData
+      );
+
+      dispatch({ type: "LOGIN_SUCCESS", payload: response.data });
+      toast.success("Login successful!");
+
       setTimeout(() => {
-        navigate('/');
+        navigate("/");
       }, 2000);
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Login failed');
+      toast.error(error.response?.data?.message || "Login failed");
     } finally {
       setLoading(false);
     }
@@ -40,138 +43,159 @@ const Login = () => {
 
   return (
     <div
-  style={{
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    minHeight: "100vh",
-    background: "linear-gradient(120deg, #007bff, #20c997, #6f42c1, #ff6a00, #28a745)",
-    backgroundSize: "400% 400%",
-    animation: "gradientBG 12s ease infinite",
-    marginTop:'-10px',
-  }}
->
-  <div
-    style={{
-      marginTop:'-130px',
-      background: "#fff",
-      borderRadius: "16px",
-      boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
-      padding: "30px",
-      maxWidth: "400px",
-      width: "100%",
-      textAlign: "center",
-      transition: "transform 0.3s ease, box-shadow 0.3s ease",
-    }}
-    onMouseOver={(e) => {
-      e.currentTarget.style.transform = "translateY(-5px)";
-      e.currentTarget.style.boxShadow = "0 10px 25px rgba(0,0,0,0.2)";
-    }}
-    onMouseOut={(e) => {
-      e.currentTarget.style.transform = "translateY(0)";
-      e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.15)";
-    }}
-  >
-    <h2 style={{ marginBottom: "20px", color: "#333", fontSize: "1.8rem" }}>Login to FashionX</h2>
-    <form onSubmit={handleSubmit}>
-      <div style={{ textAlign: "left", marginBottom: "15px" }}>
-        <label style={{ display: "block", marginBottom: "6px", fontWeight: "600", color: "#555" }}>Email</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          style={{
-            width: "100%",
-            padding: "12px",
-            border: "1px solid #ddd",
-            borderRadius: "8px",
-            fontSize: "1rem",
-            outline: "none",
-            transition: "border 0.2s ease, box-shadow 0.2s ease",
-          }}
-          onFocus={(e) => {
-            e.target.style.borderColor = "#007bff";
-            e.target.style.boxShadow = "0 0 6px rgba(0,123,255,0.3)";
-          }}
-          onBlur={(e) => {
-            e.target.style.borderColor = "#ddd";
-            e.target.style.boxShadow = "none";
-          }}
-        />
-      </div>
-
-      <div style={{ textAlign: "left", marginBottom: "15px" }}>
-        <label style={{ display: "block", marginBottom: "6px", fontWeight: "600", color: "#555" }}>Password</label>
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-          style={{
-            width: "100%",
-            padding: "12px",
-            border: "1px solid #ddd",
-            borderRadius: "8px",
-            fontSize: "1rem",
-            outline: "none",
-            transition: "border 0.2s ease, box-shadow 0.2s ease",
-          }}
-          onFocus={(e) => {
-            e.target.style.borderColor = "#007bff";
-            e.target.style.boxShadow = "0 0 6px rgba(0,123,255,0.3)";
-          }}
-          onBlur={(e) => {
-            e.target.style.borderColor = "#ddd";
-            e.target.style.boxShadow = "none";
-          }}
-        />
-      </div>
-
-      <button
-        type="submit"
-        disabled={loading}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: "20px",
+        marginBottom: "20px",
+      }}>
+      <div
         style={{
+          background: "#fff",
+          borderRadius: "16px",
+          boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
+          padding: "30px",
+          maxWidth: "400px",
           width: "100%",
-          padding: "12px",
-          border: "none",
-          borderRadius: "8px",
-          fontSize: "1.1rem",
-          fontWeight: "bold",
-          color: "#fff",
-          background: "linear-gradient(270deg, #007bff, #20c997, #6f42c1, #ff6a00, #28a745)",
-          backgroundSize: "600% 600%",
-          cursor: loading ? "not-allowed" : "pointer",
-          marginTop: "10px",
+          textAlign: "center",
           transition: "transform 0.3s ease, box-shadow 0.3s ease",
-          animation: loading ? "none" : "gradientMove 8s ease infinite",
         }}
         onMouseOver={(e) => {
-          if (!loading) {
-            e.currentTarget.style.transform = "scale(1.05)";
-            e.currentTarget.style.boxShadow = "0 6px 15px rgba(0,0,0,0.2)";
-          }
+          e.currentTarget.style.transform = "translateY(-5px)";
+          e.currentTarget.style.boxShadow = "0 10px 25px rgba(0,0,0,0.2)";
         }}
         onMouseOut={(e) => {
-          if (!loading) {
-            e.currentTarget.style.transform = "scale(1)";
-            e.currentTarget.style.boxShadow = "none";
-          }
-        }}
-      >
-        {loading ? "Logging in..." : "Login"}
-      </button>
-    </form>
+          e.currentTarget.style.transform = "translateY(0)";
+          e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.15)";
+        }}>
+        <h2 style={{ marginBottom: "20px", color: "#333", fontSize: "1.8rem" }}>
+          Login to FashionX
+        </h2>
+        <form onSubmit={handleSubmit}>
+          <div style={{ textAlign: "left", marginBottom: "15px" }}>
+            <label
+              style={{
+                display: "block",
+                marginBottom: "6px",
+                fontWeight: "600",
+                color: "#555",
+              }}>
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              style={{
+                width: "100%",
+                padding: "12px",
+                border: "1px solid #ddd",
+                borderRadius: "8px",
+                fontSize: "1rem",
+                outline: "none",
+                transition: "border 0.2s ease, box-shadow 0.2s ease",
+              }}
+              onFocus={(e) => {
+                e.target.style.borderColor = "#007bff";
+                e.target.style.boxShadow = "0 0 6px rgba(0,123,255,0.3)";
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = "#ddd";
+                e.target.style.boxShadow = "none";
+              }}
+            />
+          </div>
 
-    <p style={{ marginTop: "20px", textAlign: "center", color: "#555" }}>
-      Don't have an account? <Link to="/register" style={{ color: "#007bff", fontWeight: "bold", textDecoration: "none" }}>Register here</Link>
-    </p>
-  </div>
+          <div style={{ textAlign: "left", marginBottom: "15px" }}>
+            <label
+              style={{
+                display: "block",
+                marginBottom: "6px",
+                fontWeight: "600",
+                color: "#555",
+              }}>
+              Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              style={{
+                width: "100%",
+                padding: "12px",
+                border: "1px solid #ddd",
+                borderRadius: "8px",
+                fontSize: "1rem",
+                outline: "none",
+                transition: "border 0.2s ease, box-shadow 0.2s ease",
+              }}
+              onFocus={(e) => {
+                e.target.style.borderColor = "#007bff";
+                e.target.style.boxShadow = "0 0 6px rgba(0,123,255,0.3)";
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = "#ddd";
+                e.target.style.boxShadow = "none";
+              }}
+            />
+          </div>
 
-  <style>
-    {`
+          <button
+            type="submit"
+            disabled={loading}
+            style={{
+              width: "100%",
+              padding: "12px",
+              border: "none",
+              borderRadius: "8px",
+              fontSize: "1.1rem",
+              fontWeight: "bold",
+              color: "#fff",
+              background:
+                "linear-gradient(270deg, #007bff, #20c997, #6f42c1, #ff6a00, #28a745)",
+              backgroundSize: "600% 600%",
+              cursor: loading ? "not-allowed" : "pointer",
+              marginTop: "10px",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              animation: loading ? "none" : "gradientMove 8s ease infinite",
+            }}
+            onMouseOver={(e) => {
+              if (!loading) {
+                e.currentTarget.style.transform = "scale(1.05)";
+                e.currentTarget.style.boxShadow = "0 6px 15px rgba(0,0,0,0.2)";
+              }
+            }}
+            onMouseOut={(e) => {
+              if (!loading) {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.boxShadow = "none";
+              }
+            }}>
+            {loading ? "Logging in..." : "Login"}
+          </button>
+        </form>
+
+        <p style={{ marginTop: "20px", textAlign: "center", color: "#555" }}>
+          Don't have an account?{" "}
+          <Link
+            to="/register"
+            style={{
+              color: "#007bff",
+              fontWeight: "bold",
+              textDecoration: "none",
+            }}>
+            Register here
+          </Link>
+        </p>
+      </div>
+
+      <style>
+        {`
       @keyframes gradientBG {
         0% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
@@ -184,9 +208,8 @@ const Login = () => {
         100% { background-position: 0% 50%; }
       }
     `}
-  </style>
-</div>
-
+      </style>
+    </div>
   );
 };
 
