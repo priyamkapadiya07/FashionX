@@ -29,10 +29,13 @@ const Profile = () => {
   const fetchUserProfile = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:5000/api/auth/profile", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      
+      const response = await axios.get(
+        "http://localhost:5000/api/auth/profile",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
       const userData = response.data;
       setProfileData({
         name: userData.name || "",
@@ -148,8 +151,10 @@ const Profile = () => {
   };
 
   return (
-    <div className="container" style={{ paddingTop: "100px" }}>
-      <h1>My Profile</h1>
+    <div className="container" style={{ paddingTop: "10px" }}>
+      <h1 style={{ fontFamily: "cursive", marginBottom: "50px" }}>
+        My Profile
+      </h1>
 
       {/* Tab Navigation */}
       <div
@@ -355,9 +360,9 @@ const Profile = () => {
                     }}>
                     Total: ${order.totalAmount.toFixed(2)}
                   </div>
-                  
+
                   {/* Cancel Order Button */}
-                  {order.orderStatus === 'processing' && (
+                  {order.orderStatus === "processing" && (
                     <div style={{ textAlign: "right" }}>
                       <button
                         onClick={() => handleCancelOrder(order._id)}
@@ -384,7 +389,6 @@ const Profile = () => {
       {/* Profile Settings Tab */}
       {activeTab === "profile" && (
         <div>
-          <h3>Profile Settings</h3>
           <form
             onSubmit={handleUpdateProfile}
             style={{
@@ -593,7 +597,9 @@ const Profile = () => {
               style={{
                 padding: "1rem",
                 marginBottom: "2rem",
-                backgroundColor: "#007bff",
+                background:
+                  "linear-gradient(270deg, #007bff, #20c997, #6f42c1, #ff6a00, #28a745)",
+                backgroundSize: "600% 600%",
                 color: "white",
                 border: "none",
                 borderRadius: "8px",
@@ -601,9 +607,30 @@ const Profile = () => {
                 fontWeight: "bold",
                 cursor: "pointer",
                 marginTop: "1rem",
+                transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                animation: "gradientMove 8s ease infinite",
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "scale(1.05)";
+                e.currentTarget.style.boxShadow =
+                  "0 6px 15px rgba(0, 0, 0, 0.2)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.boxShadow = "none";
               }}>
               Update Profile
             </button>
+
+            <style>
+              {`
+                @keyframes gradientMove {
+                  0% { background-position: 0% 50%; }
+                  50% { background-position: 100% 50%; }
+                  100% { background-position: 0% 50%; }
+                }
+              `}
+            </style>
           </form>
         </div>
       )}
