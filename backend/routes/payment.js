@@ -106,8 +106,8 @@ router.post('/process-payment', auth, async (req, res) => {
           <tr>
             <td>${item.product.name || 'Product'}</td>
             <td>${item.quantity}</td>
-            <td>$${(item.price || 0).toFixed(2)}</td>
-            <td>$${((item.price || 0) * item.quantity).toFixed(2)}</td>
+            <td>₹${(item.price || 0).toFixed(2)}</td>
+            <td>₹${((item.price || 0) * item.quantity).toFixed(2)}</td>
           </tr>
         `).join('');
 
@@ -138,7 +138,7 @@ router.post('/process-payment', auth, async (req, res) => {
               
               <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 5px;">
                 <p><strong>Order ID:</strong> ${order._id}</p>
-                <p><strong>Total Amount:</strong> $${(order.totalAmount || 0).toFixed(2)}</p>
+                <p><strong>Total Amount:</strong> ₹${(order.totalAmount || 0).toFixed(2)}</p>
                 <p><strong>Payment Method:</strong> ${paymentMethod}</p>
                 <p><strong>Shipping Address:</strong><br>
                   ${order.shippingAddress.fullName}<br>

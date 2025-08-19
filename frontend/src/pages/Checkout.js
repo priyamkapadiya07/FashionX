@@ -352,7 +352,7 @@ const Checkout = () => {
               }}>
               {isProcessing
                 ? "Processing Payment..."
-                : `Make Payment ($${totalWithTax.toFixed(2)})`}
+                : `Make Payment (₹${totalWithTax.toFixed(2)})`}
             </button>
 
             <style>
@@ -403,7 +403,7 @@ const Checkout = () => {
                     </p>
                   </div>
                   <p style={{ fontWeight: "bold", margin: 0 }}>
-                    ${(item.price * item.quantity).toFixed(2)}
+                    ₹{(item.price * item.quantity).toFixed(2)}
                   </p>
                 </div>
               ))}
@@ -418,7 +418,7 @@ const Checkout = () => {
                   marginBottom: "0.5rem",
                 }}>
                 <span>Subtotal:</span>
-                <span>${totalAmount.toFixed(2)}</span>
+                <span>₹{totalAmount.toFixed(2)}</span>
               </div>
               <div
                 style={{
@@ -427,7 +427,7 @@ const Checkout = () => {
                   marginBottom: "0.5rem",
                 }}>
                 <span>Tax (8%):</span>
-                <span>${(totalAmount * 0.08).toFixed(2)}</span>
+                <span>₹{(totalAmount * 0.08).toFixed(2)}</span>
               </div>
               <div
                 style={{
@@ -439,7 +439,7 @@ const Checkout = () => {
                   paddingTop: "0.5rem",
                 }}>
                 <span>Total:</span>
-                <span>${totalWithTax.toFixed(2)}</span>
+                <span>₹{totalWithTax.toFixed(2)}</span>
               </div>
             </div>
           </div>

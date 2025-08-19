@@ -193,18 +193,18 @@ const Home = () => {
                       {product.discountPrice > 0 ? (
                         <>
                           <span style={{ fontWeight: 'bold', color: '#e74c3c' }}>
-                            ${product.discountPrice}
+                            ₹{product.discountPrice}
                           </span>
                           <span style={{ 
                             textDecoration: 'line-through', 
                             marginLeft: '0.5rem',
                             color: '#999'
                           }}>
-                            ${product.price}
+                            ₹{product.price}
                           </span>
                         </>
                       ) : (
-                        <span style={{ fontWeight: 'bold' }}>${product.price}</span>
+                        <span style={{ fontWeight: 'bold' }}>₹{product.price}</span>
                       )}
                     </div>
                   </div>
@@ -266,18 +266,18 @@ const Home = () => {
                       {product.discountPrice > 0 ? (
                         <>
                           <span style={{ fontWeight: 'bold', color: '#e74c3c' }}>
-                            ${product.discountPrice}
+                            ₹{product.discountPrice}
                           </span>
                           <span style={{ 
                             textDecoration: 'line-through', 
                             marginLeft: '0.5rem',
                             color: '#999'
                           }}>
-                            ${product.price}
+                            ₹{product.price}
                           </span>
                         </>
                       ) : (
-                        <span style={{ fontWeight: 'bold' }}>${product.price}</span>
+                        <span style={{ fontWeight: 'bold' }}>₹{product.price}</span>
                       )}
                     </div>
                   </div>

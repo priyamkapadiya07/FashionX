@@ -193,7 +193,7 @@ const ProductDetail = () => {
                     fontWeight: "bold",
                     color: "#e74c3c",
                   }}>
-                  ${currentProduct.discountPrice}
+                  ₹{currentProduct.discountPrice}
                 </span>
                 <span
                   style={{
@@ -202,7 +202,7 @@ const ProductDetail = () => {
                     color: "#999",
                     fontSize: "1.5rem",
                   }}>
-                  ${currentProduct.price}
+                  ₹{currentProduct.price}
                 </span>
                 <span
                   style={{
@@ -220,7 +220,7 @@ const ProductDetail = () => {
               </>
             ) : (
               <span style={{ fontSize: "2rem", fontWeight: "bold" }}>
-                ${currentProduct.price}
+                ₹{currentProduct.price}
               </span>
             )}
           </div>

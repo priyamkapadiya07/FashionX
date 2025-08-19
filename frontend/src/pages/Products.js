@@ -293,7 +293,7 @@ const Products = () => {
                         fontWeight: "bold",
                         color: "#e74c3c",
                       }}>
-                      ${product.discountPrice}
+                      ₹{product.discountPrice}
                     </span>
                     <span
                       style={{
@@ -301,12 +301,12 @@ const Products = () => {
                         marginLeft: "0.5rem",
                         color: "#999",
                       }}>
-                      ${product.price}
+                      ₹{product.price}
                     </span>
                   </>
                 ) : (
                   <span style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
-                    ${product.price}
+                    ₹{product.price}
                   </span>
                 )}
               </div>

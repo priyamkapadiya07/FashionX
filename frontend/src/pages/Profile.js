@@ -204,17 +204,37 @@ const Profile = () => {
               Loading orders...
             </div>
           ) : orders.length === 0 ? (
-            <div style={{ textAlign: "center", padding: "2rem" }}>
-              <p>No orders found</p>
+            <div
+              style={{
+                textAlign: "center",
+                padding: "3rem 1rem",
+                color: "#444",
+                fontFamily: "sans-serif",
+              }}>
+              <p style={{ fontSize: "1.2rem", marginBottom: "1.5rem" }}>
+                No orders found
+              </p>
               <button
                 onClick={() => (window.location.href = "/products")}
                 style={{
-                  padding: "0.75rem 1.5rem",
-                  backgroundColor: "#007bff",
-                  color: "white",
+                  padding: "0.9rem 2rem",
+                  fontSize: "1rem",
+                  fontWeight: "600",
+                  color: "#fff",
                   border: "none",
-                  borderRadius: "4px",
+                  borderRadius: "8px",
                   cursor: "pointer",
+                  background: "linear-gradient(45deg, #6a11cb, #2575fc)",
+                  backgroundSize: "200% 200%",
+                  transition: "all 0.4s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundPosition = "right center";
+                  e.target.style.transform = "scale(1.05)";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundPosition = "left center";
+                  e.target.style.transform = "scale(1)";
                 }}>
                 Start Shopping
               </button>
@@ -244,9 +264,9 @@ const Profile = () => {
                       marginBottom: "1rem",
                     }}>
                     <div>
-                      <h4 style={{ margin: "0 0 0.5rem 0" }}>
-                        Order #{order._id.slice(-8)}
-                      </h4>
+                      <p style={{ margin: "0 0 0.5rem 0" }}>
+                        <span style={{fontWeight:'bold'}}>Order id: </span>{order._id.slice(-8)}
+                      </p>
                       <p style={{ margin: "0", color: "#666" }}>
                         Placed on{" "}
                         {new Date(order.createdAt).toLocaleDateString()}
@@ -288,7 +308,7 @@ const Profile = () => {
 
                   {/* Order Items */}
                   <div style={{ marginBottom: "1rem" }}>
-                    {order.items.map((item, index) => (
+                    {order?.items?.map((item, index) => (
                       <div
                         key={index}
                         style={{
@@ -300,11 +320,11 @@ const Profile = () => {
                               ? "1px solid #eee"
                               : "none",
                         }}>
-                        {item.product.images &&
+                        {item?.product?.images &&
                         item.product.images.length > 0 ? (
                           <img
                             src={item.product.images[0]}
-                            alt={item.product.name}
+                            alt={item.product?.name || "Product"}
                             style={{
                               width: "60px",
                               height: "60px",
@@ -329,7 +349,7 @@ const Profile = () => {
                         )}
                         <div style={{ flex: 1 }}>
                           <h5 style={{ margin: "0 0 0.25rem 0" }}>
-                            {item.product.name}
+                            {item?.product?.name || "Unnamed Product"}
                           </h5>
                           <p
                             style={{
@@ -337,12 +357,15 @@ const Profile = () => {
                               color: "#666",
                               fontSize: "0.9rem",
                             }}>
-                            Size: {item.size} | Color: {item.color} | Qty:{" "}
-                            {item.quantity}
+                            Size: {item?.size || "-"} | Color:{" "}
+                            {item?.color || "-"} | Qty: {item?.quantity || 0}
                           </p>
                         </div>
                         <div style={{ fontWeight: "bold" }}>
-                          ${(item.price * item.quantity).toFixed(2)}
+                          ₹
+                          {((item?.price || 0) * (item?.quantity || 0)).toFixed(
+                            2
+                          )}
                         </div>
                       </div>
                     ))}
@@ -358,7 +381,7 @@ const Profile = () => {
                       borderTop: "1px solid #ddd",
                       marginBottom: "1rem",
                     }}>
-                    Total: ${order.totalAmount.toFixed(2)}
+                    Total: ₹{order.totalAmount.toFixed(2)}
                   </div>
 
                   {/* Cancel Order Button */}

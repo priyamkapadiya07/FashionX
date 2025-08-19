@@ -216,7 +216,7 @@ const Cart = () => {
                     Color: {item.color}
                   </p>
                   <p style={{ fontWeight: "bold", margin: "0.5rem 0" }}>
-                    ${item.price}
+                    ₹{item.price}
                   </p>
                 </div>
 
@@ -290,7 +290,7 @@ const Cart = () => {
                 {/* Item Total */}
                 <div style={{ textAlign: "right", minWidth: "100px" }}>
                   <p style={{ fontWeight: "bold", fontSize: "1.1rem" }}>
-                    ${(item.price * item.quantity).toFixed(2)}
+                    ₹{(item.price * item.quantity).toFixed(2)}
                   </p>
                 </div>
               </div>
@@ -318,7 +318,7 @@ const Cart = () => {
                   marginBottom: "0.5rem",
                 }}>
                 <span>Subtotal ({items.length} items):</span>
-                <span>${totalAmount.toFixed(2)}</span>
+                <span>₹{totalAmount.toFixed(2)}</span>
               </div>
 
               <div
@@ -337,8 +337,8 @@ const Cart = () => {
                   justifyContent: "space-between",
                   marginBottom: "0.5rem",
                 }}>
-                <span>Tax:</span>
-                <span>${(totalAmount * 0.08).toFixed(2)}</span>
+                <span>Tax (8%):</span>
+                <span>₹{(totalAmount * 0.08).toFixed(2)}</span>
               </div>
 
               <hr style={{ margin: "1rem 0" }} />
@@ -352,7 +352,7 @@ const Cart = () => {
                   marginBottom: "1.5rem",
                 }}>
                 <span>Total:</span>
-                <span>${(totalAmount + totalAmount * 0.08).toFixed(2)}</span>
+                <span>₹{(totalAmount + totalAmount * 0.08).toFixed(2)}</span>
               </div>
 
               <button
