@@ -113,12 +113,12 @@ router.post('/process-payment', auth, async (req, res) => {
 
         const mailOptions = {
           from: process.env.EMAIL_USER,
-          to: user.email,
+          to: shippingAddress.email,
           subject: `Order Confirmation - FashionX Order #${order._id}`,
           html: `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
               <h1 style="color: #28a745;">Order Confirmation</h1>
-              <p>Dear ${user.name || 'Customer'},</p>
+              <p>Dear ${shippingAddress.fullName || 'Customer'},</p>
               <p>Thank you for your order! Your payment has been processed successfully.</p>
               
               <h3>Order Details</h3>
