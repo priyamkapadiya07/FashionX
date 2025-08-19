@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="container">
         <div className="grid grid-3">
           <div>
-            <h3>FashionX</h3>
+            <h3 style={{fontFamily: "Papyrus", fontSize:"40px", marginTop:'20px'}} >FashionX</h3>
             <p>Your ultimate destination for fashion</p>
           </div>
           <div>

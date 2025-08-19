@@ -36,6 +36,7 @@ const Navbar = () => {
             textDecoration: "none",
             fontSize: "1.5rem",
             fontWeight: "bold",
+            fontFamily: "Papyrus",
           }}>
           FashionX
         </Link>
