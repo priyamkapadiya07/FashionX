@@ -17,7 +17,7 @@ const Footer = () => {
           <div>
             <h4>Quick Links</h4>
             <ul style={{ listStyle: 'none' }}>
-              <li><a href="/products" style={{ color: 'white', textDecoration: 'none' }}>Products 👟</a></li>
+              <li><a href="/products" style={{ color: 'white', textDecoration: 'none' }}>Products 🛍️</a></li>
               <li><a href="/cart" style={{ color: 'white', textDecoration: 'none' }}>Cart 🛒</a></li>
               <li><a href="/login" style={{ color: 'white', textDecoration: 'none' }}>Login 🌐</a></li>
             </ul>
