@@ -44,7 +44,7 @@ const Navbar = () => {
           <Link
             to="/products"
             style={{ color: "white", textDecoration: "none" }}>
-            Products
+            🛍️ Products
           </Link>
           <Link to="/cart" style={{ color: "white", position: 'relative', textDecoration: "none" }}>
             🛒Cart
@@ -72,7 +72,7 @@ const Navbar = () => {
               <Link
                 to="/profile"
                 style={{ color: "white", textDecoration: "none" }}>
-                Profile
+                👤 Profile
               </Link>
               <button
                 onClick={handleLogout}
@@ -82,7 +82,7 @@ const Navbar = () => {
                   color: "white",
                   cursor: "pointer",
                 }}>
-                Logout
+                📤 Logout
               </button>
             </>
           ) : (
