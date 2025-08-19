@@ -88,10 +88,10 @@ const Checkout = () => {
         // Clear cart
         dispatch({ type: "CLEAR_CART" });
         toast.success("Payment Successful!");
-        
+
         // Navigate to payment success page without delay
         setTimeout(() => {
-        navigate("/payment-success");
+          navigate("/payment-success");
         }, 10);
       } else {
         toast.error(response.data.message || "Payment failed");
@@ -109,8 +109,8 @@ const Checkout = () => {
   const totalWithTax = totalAmount + totalAmount * 0.08;
 
   return (
-    <div className="container" style={{ paddingTop: "100px" }}>
-      <h1>Checkout</h1>
+    <div className="container" style={{ paddingTop: "10px" }}>
+      <h1 style={{ fontFamily: "cursive", marginBottom: "50px" }}>Checkout</h1>
 
       <div
         style={{
@@ -323,17 +323,47 @@ const Checkout = () => {
                 width: "100%",
                 padding: "1rem",
                 marginBottom: "2rem",
-                backgroundColor: isProcessing ? "#ccc" : "#28a745",
+                background: isProcessing
+                  ? "#ccc"
+                  : "linear-gradient(270deg, #28a745, #20c997, #007bff, #6f42c1, #ff6a00)",
+                backgroundSize: "600% 600%",
                 color: "white",
                 border: "none",
                 borderRadius: "6px",
                 fontSize: "1.1rem",
                 cursor: isProcessing ? "not-allowed" : "pointer",
+                animation: isProcessing
+                  ? "none"
+                  : "gradientMove 8s ease infinite",
+                transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              }}
+              onMouseOver={(e) => {
+                if (!isProcessing) {
+                  e.currentTarget.style.transform = "scale(1.05)";
+                  e.currentTarget.style.boxShadow =
+                    "0 6px 15px rgba(0, 0, 0, 0.2)";
+                }
+              }}
+              onMouseOut={(e) => {
+                if (!isProcessing) {
+                  e.currentTarget.style.transform = "scale(1)";
+                  e.currentTarget.style.boxShadow = "none";
+                }
               }}>
               {isProcessing
                 ? "Processing Payment..."
                 : `Make Payment ($${totalWithTax.toFixed(2)})`}
             </button>
+
+            <style>
+              {`
+                @keyframes gradientMove {
+                  0% { background-position: 0% 50%; }
+                  50% { background-position: 100% 50%; }
+                  100% { background-position: 0% 50%; }
+                }
+              `}
+            </style>
           </form>
         </div>
 
