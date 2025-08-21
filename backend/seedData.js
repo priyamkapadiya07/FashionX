@@ -37,6 +37,30 @@ const categories = [
 // Sample products
 const products = [
   {
+    name: "crew-neck Yellow T-Shirt",
+    description:
+      "A classic crew-neck t-shirt made from soft cotton. Perfect for casual outings.",
+    price: 299,
+    discountPrice: 0,
+    images: [
+      "https://images.unsplash.com/photo-1532296075534-cc428d395281?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTB8fHRzaGlydHxlbnwwfHwwfHx8MA%3D%3D",
+    ],
+    subcategory: "Basic Tees",
+    brand: "FashionX Basics",
+    gender: "women",
+    sizes: [
+      { size: "S", stock: 25 },
+      { size: "M", stock: 30 },
+      { size: "L", stock: 20 },
+      { size: "XL", stock: 15 },
+    ],
+    colors: ["Yellow"],
+    tags: ["basic", "crew-neck", "casual"],
+    isFeatured: true,
+    isNewArrival: false,
+    isOnSale: false,
+  },
+  {
     name: "Classic White T-Shirt",
     description:
       "A timeless white t-shirt made from 100% cotton. Perfect for layering or wearing on its own.",
@@ -48,7 +72,7 @@ const products = [
     ],
     subcategory: "Basic Tees",
     brand: "FashionX Basics",
-    gender: "unisex",
+    gender: "men",
     sizes: [
       { size: "S", stock: 25 },
       { size: "M", stock: 30 },
@@ -191,6 +215,130 @@ const products = [
     isFeatured: true,
     isNewArrival: true,
     isOnSale: false,
+  },
+  {
+    name: "Wearing White Boots",
+    description:
+      "Comfortable white Boots perfect for party wear.",
+    price: 1999,
+    discountPrice: 0,
+    images: [
+      "https://plus.unsplash.com/premium_photo-1674719144437-d1c253a8b775?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Ym9vdHN8ZW58MHx8MHx8fDA%3D",    ],
+    subcategory: "Sneakers",
+    brand: "Nike",
+    gender: "women",
+    sizes: [
+      { size: "7", stock: 10 },
+      { size: "8", stock: 15 },
+      { size: "9", stock: 20 },
+      { size: "10", stock: 18 },
+      { size: "11", stock: 12 },
+      { size: "12", stock: 8 },
+    ],
+    colors: ["very pale cream"],
+    tags: ["Party Wear", "comfortable", "casual"],
+    isFeatured: true,
+    isNewArrival: false,
+    isOnSale: false,
+  },
+  {
+    name: "Athletic Shoes",
+    description:
+      "design for comfort and performance in sports and fitness activities.",
+    price: 1399,
+    discountPrice: 1299,
+    images: [
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c25lYWtlcnxlbnwwfHwwfHx8MA%3D%3D"],
+    subcategory: "Sneakers",
+    brand: "jordan",
+    gender: "unisex",
+    sizes: [
+      { size: "7", stock: 10 },
+      { size: "8", stock: 15 },
+      { size: "9", stock: 20 },
+      { size: "10", stock: 18 },
+      { size: "11", stock: 12 },
+      { size: "12", stock: 8 },
+    ],
+    colors: ["white & orange"],
+    tags: ["Sports", "comfortable"],
+    isFeatured: true,
+    isNewArrival: true,
+    isOnSale: true,
+  },
+  {
+    name: "Women cloth Pair",
+    description:
+      "A pair dress designed",
+    price: 2499,
+    discountPrice: 0,
+    images: [
+      "https://plus.unsplash.com/premium_photo-1691622500373-da5adfe5b2ff?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2FzdWFsfGVufDB8fDB8fHww"],
+    subcategory: "Casual",
+    brand: "Zara",
+    gender: "women",
+    sizes: [
+      { size: "XS", stock: 5 },
+      { size: "S", stock: 8 },
+      { size: "M", stock: 10 },
+      { size: "L", stock: 6 },
+      { size: "XL", stock: 3 },
+    ],
+    colors: ["gray and cream"],
+    tags: ["casual", "comfortable"],
+    isFeatured: true,
+    isNewArrival: false,
+    isOnSale: false,
+  },
+  {
+    name: "Man Black Suit Jacket",
+    description:
+      "A stylish black suit jacket designed for formal occasions.",
+    price: 4999,
+    discountPrice: 0,
+    images: [
+      "https://images.unsplash.com/photo-1474583846830-43fa959fc6ee?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGZvcm1hbHxlbnwwfHwwfHx8MA%3D%3D"],
+    subcategory: "Formal",
+    brand: "H&M",
+    gender: "men",
+    sizes: [
+      { size: "XS", stock: 5 },
+      { size: "S", stock: 8 },
+      { size: "M", stock: 10 },
+      { size: "L", stock: 6 },
+      { size: "XL", stock: 3 },
+    ],
+    colors: ["black"],
+    tags: ["casual", "comfortable", "formal", "jacket"],
+    isFeatured: true,
+    isNewArrival: false,
+    isOnSale: false,
+  },
+  {
+    name: "Straight Fit Jeans",
+    description:
+      "Modern Straight fit jeans for comfort and style. Perfect for everyday wear.",
+    price: 799,
+    discountPrice: 699,
+    images: [
+      "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8amVhbnN8ZW58MHx8MHx8fDA%3D",
+      "https://images.unsplash.com/photo-1638404390952-3a9442fbad15?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmxhY2slMjBqZWFuc3xlbnwwfHwwfHx8MA%3D%3D"
+    ],
+    subcategory: "Straight",
+    brand: "H&M",
+    gender: "women",
+    sizes: [
+      { size: "28", stock: 10 },
+      { size: "30", stock: 15 },
+      { size: "32", stock: 20 },
+      { size: "34", stock: 12 },
+      { size: "36", stock: 8 },
+    ],
+    colors: ["Light Blue","Black"],
+    tags: ["denim", "Straight", "stretch"],
+    isFeatured: true,
+    isNewArrival: false,
+    isOnSale: true,
   },
 ];
 
